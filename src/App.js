@@ -10,7 +10,8 @@ export default function App() {
         const workbook = read(data, { type: "array" });
         const sheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[sheetName];
-        const json = utils.sheet_to_json(worksheet);
+        const json = JSON.stringify(utils.sheet_to_json(worksheet));
+
         console.log(json);
       };
       reader.readAsArrayBuffer(e.target.files[0]);
